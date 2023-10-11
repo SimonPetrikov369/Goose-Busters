@@ -1,0 +1,29 @@
+/* Basic styling, layout, and animations go here */
+body {
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.score-container{
+    height: 15%;
+    background-color: lightblue;
+}
+.game-container {
+    position: relative;       
+    background: url('pond.jpg');
+    background-size: cover;
+    height: 95%;
+    background-repeat: no-repeat;
+}
+
+.duck {
+    width: 150px;
+    height: 150px;
+    background-image: url('goose.png'); /* You can replace 'duck.png' with your own duck image */
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+}

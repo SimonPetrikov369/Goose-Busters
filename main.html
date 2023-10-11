@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose Busters!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="gameOverModal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="modal-dialog">
+            <div class="modal-content bg-white shadow-md rounded p-4">
+                <div class="p-2 text-center">
+                    <p class="text-2xl font-bold mb-5 text-red-600 dark:text-red-600 hidden" id="modalGameOver">Game Over!</p>
+                    <div id="modalWin" class="hidden">
+                        <p class="text-2xl font-bold text-green-600 dark:text-green-600 ">Congratulations!</p>
+                        <span class="text-lg font-normal  mb-5 text-green-600 dark:text-green-600 ">
+                            You truly are a duck hunter!
+                        </span>
+                    </div>
+                   
+                    <p class="mb-4 mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Your score: <span id="finalScore" class="font-bold">0</span></p>
+                    <button id="playAgainButton" data-modal-hide="popup-modal" type="button" class="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Play Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="game-container" id="game-container">
+        <div class="duck hidden"></div>
+        <audio id="audioPlayer" src="honk.mp3"></audio>
+    </div>
+    <div class="score-bar">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4">Goose Buster</h1>
+            <p class="mb-2" id="score">Score: <span id="scoreValue" class="font-bold">0</span></p>
+            <p class="mb-2">Time: <span id="timer" class="font-bold">30 seconds</span></p>
+            <button id="startButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Start Game</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
