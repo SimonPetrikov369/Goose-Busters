@@ -4,19 +4,26 @@ const score = document.getElementById('score');
 
 
 let currentScore = 0;
-let timer = 60;
+let timer = 30;
 let intervalId;
-
+const geese = [
+    "goose", 
+    "goose2",
+    "goose3", 
+    "goose4"
+]
 const startButton = document.getElementById("startButton");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer");
-const gameOverModal = document.getElementById("gameOverModal");
+
 const finalScoreElement = document.getElementById("finalScore");
 const playAgainButton = document.getElementById("playAgainButton");
-const modalGameOver = document.getElementById("modalGameOver");
+
 const gamecontainer = document.getElementById("game-container")
 const audioPlayer = document.getElementById('audioPlayer');
-const modalWin = document.getElementById("modalWin")
+const gameOverModal = document.getElementById("gameOverModal");
+const modalWin = document.getElementById("modalWin");
+const modalGameOver = document.getElementById("modalGameOver");
 
 startButton.addEventListener("click", startGame);
 playAgainButton.addEventListener("click", playAgain);
@@ -24,6 +31,7 @@ playAgainButton.addEventListener("click", playAgain);
 function startGame(){
     currentScore = 0;
     timer = 30;
+    randomizeGeeze();
     showGoose()
     moveDuckRandomly();
     updateScore();
@@ -74,25 +82,31 @@ function playAgain() {
     gameOverModal.classList.add("hidden");
     modalGameOver.classList.add("hidden");
     modalWin.classList.add("hidden");
+    resetTimer()
     startButton.disabled = false;
 }
 function updateTimer() {
     timerElement.textContent = timer + " seconds";
 }
+function randomizeGeeze(){
+    const randomImageUrl = geese[Math.floor(Math.random() * geese.length)];
+    duck.style.backgroundImage = `url('${randomImageUrl}.png')`
+}
+function resetTimer(){
+    timerElement.textContent = "30 seconds";
+}
 duck.addEventListener('click', () => {
     currentScore++;
-    playAudio()
-    updateScore()
+    playAudio();
+    updateScore();
     moveDuckRandomly();
+    randomizeGeeze();
 });
 
 function showGoose(){
     duck.style.display="block"
 }
 function moveDuckRandomly() {
-    // const maxWidth = window.innerWidth - duck.clientWidth;
-    // const maxHeight = window.innerHeight - duck.clientHeight;
-
     const maxWidth = gamecontainer.clientWidth - duck.clientWidth;
     const maxHeight = gamecontainer.clientHeight - duck.clientHeight;
 

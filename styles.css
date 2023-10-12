@@ -22,7 +22,7 @@ body {
 .duck {
     width: 150px;
     height: 150px;
-    background-image: url('goose.png'); /* You can replace 'duck.png' with your own duck image */
+    /* background-image: url('goose.png');  */
     background-size: contain;
     position: absolute;
     cursor: pointer;
